@@ -1,11 +1,11 @@
 #! /usr/bin/env python
 # Mega Man X6 tweaks
 
+import hashlib
+
 # Computes SHA-1 of a readable stream
 def compute_sha1(io, block_size = 64 * 1024):
-    from hashlib import sha1
-
-    sha1_hash = sha1()
+    sha1_hash = hashlib.sha1()
     blocks = iter(lambda: io.read(block_size), b'')
 
     for block in blocks:
