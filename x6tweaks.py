@@ -31,6 +31,10 @@ def patch(io, offset, value, size):
     io.seek(offset)
     io.write(data)
 
+def tweak_parts_allowed(image, offsets, tweaks):
+    patch(image, offsets['normal'], tweaks['normal'], 1)
+    patch(image, offsets['limited'], tweaks['limited'], 1)
+
 def tweak_ranks(image, rank_offsets, rank_tweaks):
     for rank, tweaks in rank_tweaks.items():
         offsets = rank_offsets[rank]
@@ -38,8 +42,7 @@ def tweak_ranks(image, rank_offsets, rank_tweaks):
         if offsets['souls_required'] is not None:
             patch(image, offsets['souls_required'], tweaks['souls_required'], 2)
 
-        patch(image, offsets['parts_allowed']['normal'], tweaks['parts_allowed']['normal'], 1)
-        patch(image, offsets['parts_allowed']['limited'], tweaks['parts_allowed']['limited'], 1)
+        tweak_parts_allowed(image, offsets['parts_allowed'], tweaks['parts_allowed'])
 
 def tweak_x6(image, offsets, tweaks):
     if 'ranks' in tweaks:
