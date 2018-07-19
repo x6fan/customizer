@@ -1,0 +1,60 @@
+{
+	"ranks": {
+		"D": {
+			"souls_required": null,
+			"parts_allowed": {
+				"normal": 497637843,
+				"limited": 497637851
+			}
+		},
+		"C": {
+			"souls_required": 496548792,
+			"parts_allowed": {
+				"normal": 497637842,
+				"limited": 497637850
+			}
+		},
+		"B": {
+			"souls_required": 496548790,
+			"parts_allowed": {
+				"normal": 497637841,
+				"limited": 497637849
+			}
+		},
+		"A": {
+			"souls_required": 496548788,
+			"parts_allowed": {
+				"normal": 497637840,
+				"limited": 497637848
+			}
+		},
+		"SA": {
+			"souls_required": 496548786,
+			"parts_allowed": {
+				"normal": 497637839,
+				"limited": 497637847
+			}
+		},
+		"PA": {
+			"souls_required": 496548784,
+			"parts_allowed": {
+				"normal": 497637838,
+				"limited": 497637846
+			}
+		},
+		"GA": {
+			"souls_required": 496548782,
+			"parts_allowed": {
+				"normal": 497637837,
+				"limited": 497637845
+			}
+		},
+		"UH": {
+			"souls_required": 496548780,
+			"parts_allowed": {
+				"normal": 497637836,
+				"limited": 497637844
+			}
+		}
+	}
+}
