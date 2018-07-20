@@ -31,24 +31,27 @@ def patch(io, offset, value, size):
     io.seek(offset)
     io.write(data)
 
-def tweak_parts_allowed(image, offsets, tweaks):
-    patch(image, offsets['normal'], tweaks['normal'], 1)
-    patch(image, offsets['limited'], tweaks['limited'], 1)
+def tweak_parts_allowed(image, offsets, sizes, tweaks):
+    patch(image, offsets['normal'], tweaks['normal'], sizes['normal'])
+    patch(image, offsets['limited'], tweaks['limited'], sizes['limited'])
 
-def tweak_ranks(image, rank_offsets, rank_tweaks):
+def tweak_ranks(image, rank_offsets, rank_sizes, rank_tweaks):
     for rank, tweaks in rank_tweaks.items():
         offsets = rank_offsets[rank]
 
         if offsets['souls_required'] is not None:
-            patch(image, offsets['souls_required'], tweaks['souls_required'], 2)
+            patch(image, offsets['souls_required'], tweaks['souls_required'], rank_sizes['souls_required'])
 
-        tweak_parts_allowed(image, offsets['parts_allowed'], tweaks['parts_allowed'])
+        tweak_parts_allowed(image, offsets['parts_allowed'], rank_sizes['parts_allowed'], tweaks['parts_allowed'])
 
-def tweak_x6(image, offsets, tweaks):
+def tweak_x6(image, data, tweaks):
+    offsets = data['offsets']
+    sizes = data['sizes']
+
     if 'ranks' in tweaks:
-        tweak_ranks(image, offsets['ranks'], tweaks['ranks'])
+        tweak_ranks(image, offsets['ranks'], sizes['ranks'], tweaks['ranks'])
 
-def main(x6_image_path, x6_offsets_path):
+def main(x6_image_path, x6_data_path):
     x6_image = open(x6_image_path, 'r+b', buffering = 0)
 
     with x6_image:
@@ -60,17 +63,17 @@ def main(x6_image_path, x6_offsets_path):
 
         print('Verified: Mega Man X6 (USA) (v1.1)')
 
-        with open(x6_offsets_path, 'r') as json_file:
-            print('Loading offset data: %s' % json_file.name)
+        with open(x6_data_path, 'r') as json_file:
+            print('Loading X6 data: %s' % json_file.name)
 
-            x6_offsets = json.load(json_file)
+            x6_data = json.load(json_file)
 
         x6_tweaks = json.load(sys.stdin)
 
-        tweak_x6(x6_image, x6_offsets, x6_tweaks)
+        tweak_x6(x6_image, x6_data, x6_tweaks)
 
 if __name__ == '__main__':
     x6_image_path = os.path.abspath(sys.argv[1])
-    x6_offsets_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'x6_data.json'))
+    x6_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'x6_data.json'))
 
-    main(x6_image_path, x6_offsets_path)
+    main(x6_image_path, x6_data_path)
