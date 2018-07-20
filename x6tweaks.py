@@ -71,6 +71,6 @@ def main(x6_image_path, x6_offsets_path):
 
 if __name__ == '__main__':
     x6_image_path = os.path.abspath(sys.argv[1])
-    x6_offsets_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'x6_offsets.json'))
+    x6_offsets_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'x6_data.json'))
 
     main(x6_image_path, x6_offsets_path)
