@@ -32,24 +32,27 @@ def patch(io, offset, value, size):
     io.write(data)
 
 def tweak_parts_allowed(image, offsets, sizes, tweaks):
-    patch(image, offsets['normal'], tweaks['normal'], sizes['normal'])
-    patch(image, offsets['limited'], tweaks['limited'], sizes['limited'])
+    dicts = [offsets, tweaks, sizes]
+
+    patch(image, *[d['normal'] for d in dicts])
+    patch(image, *[d['limited'] for d in dicts])
 
 def tweak_ranks(image, rank_offsets, rank_sizes, rank_tweaks):
     for rank, tweaks in rank_tweaks.items():
         offsets = rank_offsets[rank]
 
         if offsets['souls_required'] is not None:
-            patch(image, offsets['souls_required'], tweaks['souls_required'], rank_sizes['souls_required'])
+            patch(image, *[d['souls_required'] for d in [offsets, tweaks, rank_sizes]])
 
-        tweak_parts_allowed(image, offsets['parts_allowed'], rank_sizes['parts_allowed'], tweaks['parts_allowed'])
+        tweak_parts_allowed(image, *[d['parts_allowed'] for d in [offsets, rank_sizes, tweaks]])
 
 def tweak_x6(image, data, tweaks):
     offsets = data['offsets']
     sizes = data['sizes']
 
-    if 'ranks' in tweaks:
-        tweak_ranks(image, offsets['ranks'], sizes['ranks'], tweaks['ranks'])
+    for category, function in { 'ranks': tweak_ranks }.items():
+        if category in tweaks:
+            function(image, *[d[category] for d in [offsets, sizes, tweaks]])
 
 def main(x6_image_path, x6_data_path):
     x6_image = open(x6_image_path, 'r+b', buffering = 0)
