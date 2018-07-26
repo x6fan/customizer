@@ -14,15 +14,15 @@ def load_supported_games():
     with open(os.path.join(root, 'games.json')) as games:
         return json.load(games)
 
-# Computes SHA-1 of a readable stream
-def compute_sha1(io, block_size = 64 * 1024):
-    sha1_hash = hashlib.sha1()
+# Hashes a readable stream, uses SHA-1 by default
+def hash(io, function = hashlib.sha1, block_size = 64 * 1024):
+    hash = function()
     blocks = iter(lambda: io.read(block_size), b'')
 
     for block in blocks:
-        sha1_hash.update(block)
+        hash.update(block)
 
-    return sha1_hash.hexdigest()
+    return hash.hexdigest()
 
 def verify(x6_image, target_sha1 = 'd4f7e08371027a87a3bf13311db5a4c56733f4ea'):
     return compute_sha1(x6_image) == target_sha1
