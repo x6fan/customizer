@@ -9,6 +9,11 @@ import json
 # Module root directory
 root = os.path.abspath(os.path.dirname(__file__))
 
+# Loads a JSON database of games supported by the customizer
+def load_supported_games():
+    with open(os.path.join(root, 'games.json')) as games:
+        return json.load(games)
+
 # Computes SHA-1 of a readable stream
 def compute_sha1(io, block_size = 64 * 1024):
     sha1_hash = hashlib.sha1()
