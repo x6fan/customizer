@@ -65,6 +65,24 @@ def apply_customization(game_image, value, parameters):
 def is_customization_parameters(value):
     return (type(value) is dict) and ('offset' in value) and ('size' in value) and ('endianness' in value)
 
+# Customize game image given user's preferences and available customizations
+def customize(game_image, customizations, customization_data):
+    for key, user_value in customizations.items():
+        assert key in customization_data
+        data_value = customization_data[key]
+
+        if is_customization_parameters(data_value):
+            # We reached a leaf of the tree
+            # user_value is the user's custom value
+            # data_value is customization parameters
+            apply_customization(game_image, user_value, data_value)
+        else:
+            # We can still go deeper
+            # user_value and data_value are objects
+            assert type(user_value) is dict
+            assert type(data_value) is dict
+            customize(game_image, user_value, data_value)
+
 def main(x6_image_path, x6_data_path):
     x6_image = open(x6_image_path, 'r+b', buffering = 0)
 
