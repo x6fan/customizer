@@ -24,6 +24,7 @@ def hash(io, function = hashlib.sha1, block_size = 64 * 1024):
 
     return hash.hexdigest()
 
+# Returns the game's symbol if its customization is supported, None otherwise
 def detect(game_image, supported_games):
     sha1 = hash(game_image)
 
