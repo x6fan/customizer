@@ -1,70 +1,59 @@
 {
-	"offsets": {
-		"ranks": {
-			"D": {
-				"souls_required": null,
-				"parts_allowed": {
-					"normal": 497637843,
-					"limited": 497637851
-				}
-			},
-			"C": {
-				"souls_required": 496548792,
-				"parts_allowed": {
-					"normal": 497637842,
-					"limited": 497637850
-				}
-			},
-			"B": {
-				"souls_required": 496548790,
-				"parts_allowed": {
-					"normal": 497637841,
-					"limited": 497637849
-				}
-			},
-			"A": {
-				"souls_required": 496548788,
-				"parts_allowed": {
-					"normal": 497637840,
-					"limited": 497637848
-				}
-			},
-			"SA": {
-				"souls_required": 496548786,
-				"parts_allowed": {
-					"normal": 497637839,
-					"limited": 497637847
-				}
-			},
-			"PA": {
-				"souls_required": 496548784,
-				"parts_allowed": {
-					"normal": 497637838,
-					"limited": 497637846
-				}
-			},
-			"GA": {
-				"souls_required": 496548782,
-				"parts_allowed": {
-					"normal": 497637837,
-					"limited": 497637845
-				}
-			},
-			"UH": {
-				"souls_required": 496548780,
-				"parts_allowed": {
-					"normal": 497637836,
-					"limited": 497637844
-				}
-			}
-		}
-	},
-	"sizes": {
-		"ranks": {
-			"souls_required": 2,
+	"ranks": {
+		"D": {
+			"souls_required": null,
 			"parts_allowed": {
-				"normal": 1,
-				"limited": 1
+				"normal": { "offset": 497637843, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637851, "size": 1, "endianness": "little" }
+			}
+		},
+		"C": {
+			"souls_required": { "offset": 496548792, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637842, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637850, "size": 1, "endianness": "little" }
+			}
+		},
+		"B": {
+			"souls_required": { "offset": 496548790, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637841, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637849, "size": 1, "endianness": "little" }
+			}
+		},
+		"A": {
+			"souls_required": { "offset": 496548788, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637840, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637848, "size": 1, "endianness": "little" }
+			}
+		},
+		"SA": {
+			"souls_required": { "offset": 496548786, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637839, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637847, "size": 1, "endianness": "little" }
+			}
+		},
+		"PA": {
+			"souls_required": { "offset": 496548784, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637838, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637846, "size": 1, "endianness": "little" }
+			}
+		},
+		"GA": {
+			"souls_required": { "offset": 496548782, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637837, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637845, "size": 1, "endianness": "little" }
+			}
+		},
+		"UH": {
+			"souls_required": { "offset": 496548780, "size": 2, "endianness": "little" },
+			"parts_allowed": {
+				"normal": { "offset": 497637836, "size": 1, "endianness": "little" },
+				"limited": { "offset": 497637844, "size": 1, "endianness": "little" }
 			}
 		}
 	}
