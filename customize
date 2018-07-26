@@ -61,6 +61,10 @@ def apply_customization(game_image, value, parameters):
         parameters['endianness']
     )
 
+# Determines whether the given value is a customization parameters dictionary
+def is_customization_parameters(value):
+    return (type(value) is dict) and ('offset' in value) and ('size' in value) and ('endianness' in value)
+
 def main(x6_image_path, x6_data_path):
     x6_image = open(x6_image_path, 'r+b', buffering = 0)
 
