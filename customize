@@ -35,8 +35,8 @@ def detect(game_image, supported_games):
     return None
 
 # Converts value to size bytes and writes them at offset
-def patch(io, offset, value, size):
-    data = value.to_bytes(size, byteorder = 'little')
+def patch(io, offset, value, size, endianness):
+    data = value.to_bytes(size, byteorder = endianness)
     io.seek(offset)
     io.write(data)
 
