@@ -9,10 +9,14 @@ import json
 # Module root directory
 root = os.path.abspath(os.path.dirname(__file__))
 
+# Load JSON data located at path
+def load_json(path):
+    with open(path) as data:
+        return json.load(data)
+
 # Loads a JSON database of games supported by the customizer
 def load_supported_games():
-    with open(os.path.join(root, 'games.json')) as games:
-        return json.load(games)
+    return load_json(os.path.join(root, 'games.json'))
 
 # Hashes a readable stream, uses SHA-1 by default
 def hash(io, function = hashlib.sha1, block_size = 64 * 1024):
