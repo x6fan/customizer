@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# Mega Man X6 tweaks
+# Game Customizer
 
 import os
 import sys
