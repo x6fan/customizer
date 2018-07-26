@@ -18,6 +18,9 @@ def load_json(path):
 def load_supported_games():
     return load_json(os.path.join(root, 'games.json'))
 
+# Games supported by this customization tool
+supported_games = load_supported_games()
+
 # Loads customization data for the specified game
 def load_customization_data_for(game):
     return load_json(os.path.join(root, 'games', game + '.json'))
@@ -33,7 +36,7 @@ def hash(io, function = hashlib.sha1, block_size = 64 * 1024):
     return hash.hexdigest()
 
 # Returns the game's symbol if its customization is supported, None otherwise
-def detect(game_image, supported_games):
+def detect(game_image):
     sha1 = hash(game_image)
 
     for game, metadata in supported_games.items():
