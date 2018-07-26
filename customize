@@ -6,6 +6,9 @@ import sys
 import hashlib
 import json
 
+# Module root directory
+root = os.path.abspath(os.path.dirname(__file__))
+
 # Computes SHA-1 of a readable stream
 def compute_sha1(io, block_size = 64 * 1024):
     sha1_hash = hashlib.sha1()
