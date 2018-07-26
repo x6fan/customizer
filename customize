@@ -18,6 +18,10 @@ def load_json(path):
 def load_supported_games():
     return load_json(os.path.join(root, 'games.json'))
 
+# Loads customization data for the specified game
+def load_customization_data_for(game):
+    return load_json(os.path.join(root, 'games', game + '.json'))
+
 # Hashes a readable stream, uses SHA-1 by default
 def hash(io, function = hashlib.sha1, block_size = 64 * 1024):
     hash = function()
