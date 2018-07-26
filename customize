@@ -83,29 +83,21 @@ def customize(game_image, customizations, customization_data):
             assert type(data_value) is dict
             customize(game_image, user_value, data_value)
 
-def main(x6_image_path, x6_data_path):
-    x6_image = open(x6_image_path, 'r+b', buffering = 0)
+def main(game_image, customizations):
+    detected_game = detect(game_image)
 
-    with x6_image:
-        print('Verifying Mega Man X6 image: %s' % x6_image.name)
+    if detected_game:
+        print('Detected game: %s' % detected_game)
+    else:
+        print('Unknown game')
+        return
 
-        if not verify(x6_image):
-            print('Verification failed')
-            return
+    available_customizations = load_customization_data_for(detected_game)
 
-        print('Verified: Mega Man X6 (USA) (v1.1)')
-
-        with open(x6_data_path, 'r') as json_file:
-            print('Loading X6 data: %s' % json_file.name)
-
-            x6_data = json.load(json_file)
-
-        x6_tweaks = json.load(sys.stdin)
-
-        tweak_x6(x6_image, x6_data, x6_tweaks)
+    customize(game_image, customizations, available_customizations)
 
 if __name__ == '__main__':
-    x6_image_path = os.path.abspath(sys.argv[1])
-    x6_data_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'x6_data.json'))
+    game_image_path = os.path.abspath(sys.argv[1])
 
-    main(x6_image_path, x6_data_path)
+    with open(game_image_path, 'r+b', buffering = 0) as game_image:
+        main(game_image, json.load(sys.stdin))
