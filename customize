@@ -51,6 +51,16 @@ def patch(io, offset, value, size, endianness):
     io.seek(offset)
     io.write(data)
 
+# Applies the custom value according to the given customization parameters
+def apply_customization(game_image, value, parameters):
+    patch(
+        game_image,
+        parameters['offset'],
+        value,
+        parameters['size'],
+        parameters['endianness']
+    )
+
 def main(x6_image_path, x6_data_path):
     x6_image = open(x6_image_path, 'r+b', buffering = 0)
 
