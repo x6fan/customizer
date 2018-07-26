@@ -24,8 +24,14 @@ def hash(io, function = hashlib.sha1, block_size = 64 * 1024):
 
     return hash.hexdigest()
 
-def verify(x6_image, target_sha1 = 'd4f7e08371027a87a3bf13311db5a4c56733f4ea'):
-    return compute_sha1(x6_image) == target_sha1
+def detect(game_image, supported_games):
+    sha1 = hash(game_image)
+
+    for game, metadata in supported_games.items():
+        if metadata['sha1'] == sha1:
+            return game
+
+    return None
 
 # Converts value to size bytes and writes them at offset
 def patch(io, offset, value, size):
