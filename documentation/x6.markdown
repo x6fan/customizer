@@ -18,7 +18,18 @@ Currently, the following customizations are supported:
      - Dynamo
    - Red
 
+People who contributed to the Mega Man X6 Tweaks project:
+
+ - [acediez]
+ - [injoon84]
+ - [Z3R0X]
+ - [DarkSamus993]
+
 [acediez]: http://www.romhacking.net/forum/index.php?action=profile;u=67963
 [Mega Man X6 tweaks]: http://www.romhacking.net/forum/index.php?topic=26507
 [data file]: http://www.romhacking.net/documents/780/
 [graphical patching utility]: http://www.romhacking.net/utilities/1414/
+
+[injoon84]: http://www.romhacking.net/forum/index.php?action=profile;u=18044
+[Z3R0X]: http://www.romhacking.net/forum/index.php?action=profile;u=21225
+[DarkSamus993]: http://www.romhacking.net/forum/index.php?action=profile;u=23766
