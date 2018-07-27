@@ -65,15 +65,17 @@
 			"boss_level": { "offset": 496569784, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 		}
 	},
-	"orbs": {
-		"blue": {
-			"big": { "offset": 496345668, "size": 2, "endianness": "little" },
-			"small": { "offset": 496345952, "size": 2, "endianness": "little" }
-		},
-		"red": { "offset": 496337308, "size": 2, "endianness": "little" },
-		"green": {
-			"boss": { "offset": 496337296, "size": 2, "endianness": "little" },
-			"dynamo": { "offset": 496345656, "size": 2, "endianness": "little" }
+	"nightmare": {
+		"souls": {
+			"blue": {
+				"normal": { "offset": 496345668, "size": 2, "endianness": "little" },
+				"small": { "offset": 496345952, "size": 2, "endianness": "little" }
+			},
+			"green": {
+				"boss": { "offset": 496337296, "size": 2, "endianness": "little" },
+				"dynamo": { "offset": 496345656, "size": 2, "endianness": "little" }
+			},
+			"red": { "offset": 496337308, "size": 2, "endianness": "little" }
 		}
 	}
 }

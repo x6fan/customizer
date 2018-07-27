@@ -64,15 +64,17 @@
 			"boss_level": "Lv.4"
 		}
 	},
-	"orbs": {
-		"blue": {
-			"big": 8,
-			"small": 4
-		},
-		"red": 100,
-		"green": {
-			"boss": 200,
-			"dynamo": 200
+	"nightmare": {
+		"souls": {
+			"blue": {
+				"normal": 8,
+				"small": 4
+			},
+			"green": {
+				"boss": 200,
+				"dynamo": 200
+			},
+			"red": 100
 		}
 	}
 }
