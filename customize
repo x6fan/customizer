@@ -82,6 +82,9 @@ def customize(game_image, customizations, customization_data, level = 0, callbac
                     { 'level': level, 'key': key, 'value': user_value }
                 )
 
+            if 'values' in data_value:
+                user_value = data_value['values'][user_value]
+
             apply_customization(game_image, user_value, data_value)
 
         else:
