@@ -9,7 +9,7 @@ Currently, the following customizations are supported:
    - Souls required
    - Normal and limited parts allowed
    - Associated boss levels
- - Edit nightmare souls
+ - Edit [nightmare souls]
    - Blue
      - Normal
      - Small
@@ -29,6 +29,8 @@ People who contributed to the Mega Man X6 Tweaks project:
 [Mega Man X6 tweaks]: http://www.romhacking.net/forum/index.php?topic=26507
 [data file]: http://www.romhacking.net/documents/780/
 [graphical patching utility]: http://www.romhacking.net/utilities/1414/
+
+[nightmare souls]: http://megaman.wikia.com/wiki/Nightmare_Phenomenon#Nightmare_Souls
 
 [injoon84]: http://www.romhacking.net/forum/index.php?action=profile;u=18044
 [Z3R0X]: http://www.romhacking.net/forum/index.php?action=profile;u=21225
