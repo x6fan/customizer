@@ -2,8 +2,7 @@
 He also released a [data file] documenting the tweaks
 and a [graphical patching utility] that lets players customize Mega Man X6.
 
-This Python 3 script implements a command-line tweaking tool for Mega Man X6.
-Currently, it has the following features:
+Currently, the following customizations are supported:
 
  - Verify integrity of the game image prior to patching
  - Edit hunter ranks
