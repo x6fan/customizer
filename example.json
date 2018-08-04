@@ -68,7 +68,10 @@
 		"souls": {
 			"blue": {
 				"normal": 8,
-				"small": 4
+				"small": {
+                    "virus": 4,
+                    "reploid": 4
+                }
 			},
 			"green": {
 				"boss": 200,

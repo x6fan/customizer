@@ -73,7 +73,10 @@
 			"souls": {
 				"blue": {
 					"normal": { "offset": 496345668, "size": 2, "default": 8 },
-					"small": { "offset": 496345952, "size": 2, "default": 4 }
+					"small": {
+						"virus": { "offset": 496345952, "size": 2, "default": 4 },
+						"reploid": { "offset": 496345632, "size": 2, "default": 4 }
+					}
 				},
 				"green": {
 					"boss": { "offset": 496337296, "size": 2, "default": 200 },
