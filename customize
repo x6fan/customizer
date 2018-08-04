@@ -90,10 +90,12 @@ def is_customization_parameters(value):
     return (type(value) is dict) and ('offset' in value) or ('type' in value)
 
 # Customize game image given user's preferences and available customizations
-def customize(game_image, customizations, customization_data, data_types, level = 0, callback = None):
+def customize(game_image, customizations, customization_data, data_types, stack = [], callback = None):
     for key, user_value in customizations.items():
         assert key in customization_data
         data_value = customization_data[key]
+
+        stack.append(key)
 
         if is_customization_parameters(data_value):
             # We reached a leaf of the tree
@@ -101,10 +103,7 @@ def customize(game_image, customizations, customization_data, data_types, level 
             # data_value is customization parameters
 
             if callable(callback):
-                callback(
-                    'customize-leaf',
-                    { 'level': level, 'key': key, 'value': user_value }
-                )
+                callback(stack, user_value)
 
             apply_customization(game_image, user_value, data_value, data_types)
 
@@ -114,35 +113,19 @@ def customize(game_image, customizations, customization_data, data_types, level 
             assert type(user_value) is dict
             assert type(data_value) is dict
 
-            if callable(callback):
-                callback('customize', { 'level': level, 'key': key })
-
             customize(
                 game_image,
                 user_value,
                 data_value,
                 data_types,
-                level = level + 1,
+                stack = stack,
                 callback = callback
             )
 
-def trace_customizations(context, data):
-    string = None
+        stack.pop()
 
-    if context == 'customize':
-        level = data['level']
-        key = data['key']
-
-        string = '%s%s' % ('\t' * level, key)
-
-    elif context == 'customize-leaf':
-        level = data['level']
-        key = data['key']
-        value = data['value']
-
-        string = '%s%s = %s' % ('\t' * level, key, value)
-
-    print(string)
+def trace_customizations(stack, value):
+    print('%s = %s' % ('.'.join(stack), value))
 
 def main(game_image, user_customizations):
     detected_game = detect(game_image)
