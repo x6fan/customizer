@@ -8,79 +8,79 @@
 			"D": {
 				"souls_required": null,
 				"parts_allowed": {
-					"normal": { "offset": 497637843, "size": 1 },
-					"limited": { "offset": 497637851, "size": 1 }
+					"normal": { "offset": 497637843, "size": 1, "default": 0 },
+					"limited": { "offset": 497637851, "size": 1, "default": 0 }
 				},
-				"boss_level": { "offset": 496569791, "type": "boss_level" }
+				"boss_level": { "offset": 496569791, "type": "boss_level", "default": "Lv.1" }
 			},
 			"C": {
-				"souls_required": { "offset": 496548792, "size": 2 },
+				"souls_required": { "offset": 496548792, "size": 2, "default": 200 },
 				"parts_allowed": {
-					"normal": { "offset": 497637842, "size": 1 },
-					"limited": { "offset": 497637850, "size": 1 }
+					"normal": { "offset": 497637842, "size": 1, "default": 0 },
+					"limited": { "offset": 497637850, "size": 1, "default": 0 }
 				},
-				"boss_level": { "offset": 496569790, "type": "boss_level" }
+				"boss_level": { "offset": 496569790, "type": "boss_level", "default": "Lv.1" }
 			},
 			"B": {
-				"souls_required": { "offset": 496548790, "size": 2 },
+				"souls_required": { "offset": 496548790, "size": 2, "default": 300 },
 				"parts_allowed": {
-					"normal": { "offset": 497637841, "size": 1 },
-					"limited": { "offset": 497637849, "size": 1 }
+					"normal": { "offset": 497637841, "size": 1, "default": 0 },
+					"limited": { "offset": 497637849, "size": 1, "default": 0 }
 				},
-				"boss_level": { "offset": 496569789, "type": "boss_level" }
+				"boss_level": { "offset": 496569789, "type": "boss_level", "default": "Lv.1" }
 			},
 			"A": {
-				"souls_required": { "offset": 496548788, "size": 2 },
+				"souls_required": { "offset": 496548788, "size": 2, "default": 500 },
 				"parts_allowed": {
-					"normal": { "offset": 497637840, "size": 1 },
-					"limited": { "offset": 497637848, "size": 1 }
+					"normal": { "offset": 497637840, "size": 1, "default": 1 },
+					"limited": { "offset": 497637848, "size": 1, "default": 0 }
 				},
-				"boss_level": { "offset": 496569788, "type": "boss_level" }
+				"boss_level": { "offset": 496569788, "type": "boss_level", "default": "Lv.1" }
 			},
 			"SA": {
-				"souls_required": { "offset": 496548786, "size": 2 },
+				"souls_required": { "offset": 496548786, "size": 2, "default": 800 },
 				"parts_allowed": {
-					"normal": { "offset": 497637839, "size": 1 },
-					"limited": { "offset": 497637847, "size": 1 }
+					"normal": { "offset": 497637839, "size": 1, "default": 2 },
+					"limited": { "offset": 497637847, "size": 1, "default": 0 }
 				},
-				"boss_level": { "offset": 496569787, "type": "boss_level" }
+				"boss_level": { "offset": 496569787, "type": "boss_level", "default": "Lv.2" }
 			},
 			"PA": {
-				"souls_required": { "offset": 496548784, "size": 2 },
+				"souls_required": { "offset": 496548784, "size": 2, "default": 1200 },
 				"parts_allowed": {
-					"normal": { "offset": 497637838, "size": 1 },
-					"limited": { "offset": 497637846, "size": 1 }
+					"normal": { "offset": 497637838, "size": 1, "default": 2 },
+					"limited": { "offset": 497637846, "size": 1, "default": 1 }
 				},
-				"boss_level": { "offset": 496569786, "type": "boss_level" }
+				"boss_level": { "offset": 496569786, "type": "boss_level", "default": "Lv.3" }
 			},
 			"GA": {
-				"souls_required": { "offset": 496548782, "size": 2 },
+				"souls_required": { "offset": 496548782, "size": 2, "default": 5000 },
 				"parts_allowed": {
-					"normal": { "offset": 497637837, "size": 1 },
-					"limited": { "offset": 497637845, "size": 1 }
+					"normal": { "offset": 497637837, "size": 1, "default": 3 },
+					"limited": { "offset": 497637845, "size": 1, "default": 1 }
 				},
-				"boss_level": { "offset": 496569785, "type": "boss_level" }
+				"boss_level": { "offset": 496569785, "type": "boss_level", "default": "Lv.4" }
 			},
 			"UH": {
-				"souls_required": { "offset": 496548780, "size": 2 },
+				"souls_required": { "offset": 496548780, "size": 2, "default": 9999 },
 				"parts_allowed": {
-					"normal": { "offset": 497637836, "size": 1 },
-					"limited": { "offset": 497637844, "size": 1 }
+					"normal": { "offset": 497637836, "size": 1, "default": 4 },
+					"limited": { "offset": 497637844, "size": 1, "default": 1 }
 				},
-				"boss_level": { "offset": 496569784, "type": "boss_level" }
+				"boss_level": { "offset": 496569784, "type": "boss_level", "default": "Lv.4" }
 			}
 		},
 		"nightmare": {
 			"souls": {
 				"blue": {
-					"normal": { "offset": 496345668, "size": 2 },
-					"small": { "offset": 496345952, "size": 2 }
+					"normal": { "offset": 496345668, "size": 2, "default": 8 },
+					"small": { "offset": 496345952, "size": 2, "default": 4 }
 				},
 				"green": {
-					"boss": { "offset": 496337296, "size": 2 },
-					"dynamo": { "offset": 496345656, "size": 2 }
+					"boss": { "offset": 496337296, "size": 2, "default": 200 },
+					"dynamo": { "offset": 496345656, "size": 2, "default": 200 }
 				},
-				"red": { "offset": 496337308, "size": 2 }
+				"red": { "offset": 496337308, "size": 2, "default": 100 }
 			}
 		}
 	}
