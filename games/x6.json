@@ -6,7 +6,6 @@
 	"customizations": {
 		"ranks": {
 			"D": {
-				"souls_required": null,
 				"parts_allowed": {
 					"normal": { "offset": 497637843, "size": 1, "default": 0 },
 					"limited": { "offset": 497637851, "size": 1, "default": 0 }

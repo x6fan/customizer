@@ -89,39 +89,42 @@ def apply_customization(game_image, key_or_value, parameters, types):
 def is_customization_parameters(value):
     return (type(value) is dict) and ('offset' in value) or ('type' in value)
 
-# Customize game image given user's preferences and available customizations
-def customize(game_image, customizations, customization_data, types, stack = [], callback = None):
-    for key, user_value in customizations.items():
-        data_value = customization_data[key]
+# Traverses a tree of dictionaries, calling back when leaf objects are found
+def traverse(hierarchy, stack = [], callback = None):
+    for key, value in hierarchy.items():
 
         stack.append(key)
 
-        if is_customization_parameters(data_value):
-            # We reached a leaf of the tree
-            # user_value is the user's custom value
-            # data_value is customization parameters
-
+        if is_customization_parameters(value):
             if callable(callback):
-                callback(stack, user_value)
-
-            apply_customization(game_image, user_value, data_value, types)
-
+                callback(stack, value)
         else:
-            # We can still go deeper
-            # user_value and data_value are objects
-            assert type(user_value) is dict
-            assert type(data_value) is dict
-
-            customize(
-                game_image,
-                user_value,
-                data_value,
-                types,
-                stack = stack,
-                callback = callback
-            )
+            assert type(value) is dict
+            traverse(value, stack = stack, callback = callback)
 
         stack.pop()
+
+# Returns the value at the given path in the hierarchy or raises KeyError
+def descend_into(hierarchy, path):
+    for key in path:
+        hierarchy = hierarchy[key]
+
+    return hierarchy
+
+# Customize game image given user's preferences and available customizations
+def customize(game_image, customizations, customization_data, types, callback = None):
+    def handle_leaf_object(path, parameters):
+        try:
+            user_value = descend_into(customizations, path)
+        except KeyError:
+            return
+
+        if callable(callback):
+            callback(path, user_value)
+
+        apply_customization(game_image, user_value, parameters, types)
+
+    traverse(customization_data, callback = handle_leaf_object)
 
 def trace_customizations(stack, value):
     print('%s = %s' % ('.'.join(stack), value))
