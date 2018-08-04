@@ -65,12 +65,17 @@ def merge_type_values(leaf_object, data_types):
 
     return leaf_object
 
-# Applies the custom value according to the given customization parameters
-def apply_customization(game_image, value, parameters, data_types):
-    parameters = merge_type_values(parameters, data_types)
+# Maps a symbolic value to the actual value according to the "values" property
+def map_symbolic_values(leaf_object, key_or_value):
+    if 'values' in leaf_object:
+        return leaf_object['values'][key_or_value]
+    else:
+        return key_or_value
 
-    if 'values' in parameters:
-        value = parameters['values'][value]
+# Applies the custom value according to the given customization parameters
+def apply_customization(game_image, key_or_value, parameters, data_types):
+    parameters = merge_type_values(parameters, data_types)
+    value = map_symbolic_values(parameters, key_or_value)
 
     patch(
         game_image,
