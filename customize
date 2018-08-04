@@ -53,8 +53,15 @@ def patch(io, offset, value, size, endianness):
 
 # Applies the custom value according to the given customization parameters
 def apply_customization(game_image, value, parameters, data_types):
+    if 'type' in parameters:
+        specific_type = data_types['specific'][parameters['type']]
+        parameters = { **specific_type, **parameters }
+
     common_type = data_types['common']
     parameters = { **common_type, **parameters }
+
+    if 'values' in parameters:
+        value = parameters['values'][value]
 
     patch(
         game_image,
@@ -66,7 +73,7 @@ def apply_customization(game_image, value, parameters, data_types):
 
 # Determines whether the given value is a customization parameters dictionary
 def is_customization_parameters(value):
-    return (type(value) is dict) and ('offset' in value) and ('size' in value)
+    return (type(value) is dict) and ('offset' in value) or ('type' in value)
 
 # Customize game image given user's preferences and available customizations
 def customize(game_image, customizations, customization_data, data_types, level = 0, callback = None):
@@ -84,9 +91,6 @@ def customize(game_image, customizations, customization_data, data_types, level 
                     'customize-leaf',
                     { 'level': level, 'key': key, 'value': user_value }
                 )
-
-            if 'values' in data_value:
-                user_value = data_value['values'][user_value]
 
             apply_customization(game_image, user_value, data_value, data_types)
 
