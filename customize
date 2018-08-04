@@ -55,9 +55,10 @@ def patch(io, offset, value, size, endianness):
 def merge_type_values(leaf_object, data_types):
     if 'type' in leaf_object:
         leaf_type = leaf_object['type']
-        specific_type = data_types['specific'][leaf_type]
+        specific_type = data_types[leaf_type]
         leaf_object = { **specific_type, **leaf_object }
 
+    # The common type is special: it gets merged to all leaf objects if present
     if 'common' in data_types:
         common_type = data_types['common']
         leaf_object = { **common_type, **leaf_object }
