@@ -92,7 +92,6 @@ def is_customization_parameters(value):
 # Customize game image given user's preferences and available customizations
 def customize(game_image, customizations, customization_data, data_types, stack = [], callback = None):
     for key, user_value in customizations.items():
-        assert key in customization_data
         data_value = customization_data[key]
 
         stack.append(key)
