@@ -22,7 +22,7 @@ def load_supported_games():
 supported_games = load_supported_games()
 
 # Loads customization data for the specified game
-def load_customization_data_for(game):
+def load_game_data_for(game):
     return load_json(os.path.join(root, 'games', game + '.json'))
 
 # Hashes a readable stream, uses SHA-1 by default
@@ -122,7 +122,7 @@ def trace_customizations(context, data):
 
     print(string)
 
-def main(game_image, customizations):
+def main(game_image, user_customizations):
     detected_game = detect(game_image)
 
     if detected_game:
@@ -131,9 +131,9 @@ def main(game_image, customizations):
         print('Unknown game')
         return
 
-    available_customizations = load_customization_data_for(detected_game)
+    game_data = load_game_data_for(detected_game)
 
-    customize(game_image, customizations, available_customizations, callback = trace_customizations)
+    customize(game_image, user_customizations, game_data['customizations'], callback = trace_customizations)
 
 if __name__ == '__main__':
     game_image_path = os.path.abspath(sys.argv[1])
