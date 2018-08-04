@@ -51,14 +51,22 @@ def patch(io, offset, value, size, endianness):
     io.seek(offset)
     io.write(data)
 
+# Merges values from common and specific data types with the given leaf object
+def merge_type_values(leaf_object, data_types):
+    if 'type' in leaf_object:
+        leaf_type = leaf_object['type']
+        specific_type = data_types['specific'][leaf_type]
+        leaf_object = { **specific_type, **leaf_object }
+
+    if 'common' in data_types:
+        common_type = data_types['common']
+        leaf_object = { **common_type, **leaf_object }
+
+    return leaf_object
+
 # Applies the custom value according to the given customization parameters
 def apply_customization(game_image, value, parameters, data_types):
-    if 'type' in parameters:
-        specific_type = data_types['specific'][parameters['type']]
-        parameters = { **specific_type, **parameters }
-
-    common_type = data_types['common']
-    parameters = { **common_type, **parameters }
+    parameters = merge_type_values(parameters, data_types)
 
     if 'values' in parameters:
         value = parameters['values'][value]
