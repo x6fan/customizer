@@ -133,7 +133,12 @@ def main(game_image, user_customizations):
 
     game_data = load_game_data_for(detected_game)
 
-    customize(game_image, user_customizations, game_data['customizations'], callback = trace_customizations)
+    customize(
+        game_image,
+        user_customizations,
+        game_data['customizations'],
+        callback = trace_customizations
+    )
 
 if __name__ == '__main__':
     game_image_path = os.path.abspath(sys.argv[1])
