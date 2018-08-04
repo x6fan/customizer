@@ -126,6 +126,21 @@ def customize(game_image, customizations, customization_data, types, callback = 
 
     traverse(customization_data, callback = handle_leaf_object)
 
+# Apply default values to the game image
+def apply_defaults(game_image, customization_data, types, callback = None):
+    def handle_leaf_object(path, parameters):
+        try:
+            default_value = parameters['default']
+        except KeyError:
+            return
+
+        if callable(callback):
+            callback(path, default_value)
+
+        apply_customization(game_image, default_value, parameters, types)
+
+    traverse(customization_data, callback = handle_leaf_object)
+
 def trace_customizations(stack, value):
     print('%s = %s' % ('.'.join(stack), value))
 
