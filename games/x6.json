@@ -1,82 +1,85 @@
 {
+	"data_types": {
+		"common": { "endianness": "little" }
+	},
 	"customizations": {
 		"ranks": {
 			"D": {
 				"souls_required": null,
 				"parts_allowed": {
-					"normal": { "offset": 497637843, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637851, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637843, "size": 1 },
+					"limited": { "offset": 497637851, "size": 1 }
 				},
-				"boss_level": { "offset": 496569791, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569791, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"C": {
-				"souls_required": { "offset": 496548792, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548792, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637842, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637850, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637842, "size": 1 },
+					"limited": { "offset": 497637850, "size": 1 }
 				},
-				"boss_level": { "offset": 496569790, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569790, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"B": {
-				"souls_required": { "offset": 496548790, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548790, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637841, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637849, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637841, "size": 1 },
+					"limited": { "offset": 497637849, "size": 1 }
 				},
-				"boss_level": { "offset": 496569789, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569789, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"A": {
-				"souls_required": { "offset": 496548788, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548788, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637840, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637848, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637840, "size": 1 },
+					"limited": { "offset": 497637848, "size": 1 }
 				},
-				"boss_level": { "offset": 496569788, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569788, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"SA": {
-				"souls_required": { "offset": 496548786, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548786, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637839, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637847, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637839, "size": 1 },
+					"limited": { "offset": 497637847, "size": 1 }
 				},
-				"boss_level": { "offset": 496569787, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569787, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"PA": {
-				"souls_required": { "offset": 496548784, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548784, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637838, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637846, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637838, "size": 1 },
+					"limited": { "offset": 497637846, "size": 1 }
 				},
-				"boss_level": { "offset": 496569786, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569786, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"GA": {
-				"souls_required": { "offset": 496548782, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548782, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637837, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637845, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637837, "size": 1 },
+					"limited": { "offset": 497637845, "size": 1 }
 				},
-				"boss_level": { "offset": 496569785, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569785, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			},
 			"UH": {
-				"souls_required": { "offset": 496548780, "size": 2, "endianness": "little" },
+				"souls_required": { "offset": 496548780, "size": 2 },
 				"parts_allowed": {
-					"normal": { "offset": 497637836, "size": 1, "endianness": "little" },
-					"limited": { "offset": 497637844, "size": 1, "endianness": "little" }
+					"normal": { "offset": 497637836, "size": 1 },
+					"limited": { "offset": 497637844, "size": 1 }
 				},
-				"boss_level": { "offset": 496569784, "size": 1, "endianness": "little", "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
+				"boss_level": { "offset": 496569784, "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 			}
 		},
 		"nightmare": {
 			"souls": {
 				"blue": {
-					"normal": { "offset": 496345668, "size": 2, "endianness": "little" },
-					"small": { "offset": 496345952, "size": 2, "endianness": "little" }
+					"normal": { "offset": 496345668, "size": 2 },
+					"small": { "offset": 496345952, "size": 2 }
 				},
 				"green": {
-					"boss": { "offset": 496337296, "size": 2, "endianness": "little" },
-					"dynamo": { "offset": 496345656, "size": 2, "endianness": "little" }
+					"boss": { "offset": 496337296, "size": 2 },
+					"dynamo": { "offset": 496345656, "size": 2 }
 				},
-				"red": { "offset": 496337308, "size": 2, "endianness": "little" }
+				"red": { "offset": 496337308, "size": 2 }
 			}
 		}
 	}

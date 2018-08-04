@@ -52,7 +52,10 @@ def patch(io, offset, value, size, endianness):
     io.write(data)
 
 # Applies the custom value according to the given customization parameters
-def apply_customization(game_image, value, parameters):
+def apply_customization(game_image, value, parameters, data_types):
+    common_type = data_types['common']
+    parameters = { **common_type, **parameters }
+
     patch(
         game_image,
         parameters['offset'],
@@ -63,10 +66,10 @@ def apply_customization(game_image, value, parameters):
 
 # Determines whether the given value is a customization parameters dictionary
 def is_customization_parameters(value):
-    return (type(value) is dict) and ('offset' in value) and ('size' in value) and ('endianness' in value)
+    return (type(value) is dict) and ('offset' in value) and ('size' in value)
 
 # Customize game image given user's preferences and available customizations
-def customize(game_image, customizations, customization_data, level = 0, callback = None):
+def customize(game_image, customizations, customization_data, data_types, level = 0, callback = None):
     for key, user_value in customizations.items():
         assert key in customization_data
         data_value = customization_data[key]
@@ -85,7 +88,7 @@ def customize(game_image, customizations, customization_data, level = 0, callbac
             if 'values' in data_value:
                 user_value = data_value['values'][user_value]
 
-            apply_customization(game_image, user_value, data_value)
+            apply_customization(game_image, user_value, data_value, data_types)
 
         else:
             # We can still go deeper
@@ -100,6 +103,7 @@ def customize(game_image, customizations, customization_data, level = 0, callbac
                 game_image,
                 user_value,
                 data_value,
+                data_types,
                 level = level + 1,
                 callback = callback
             )
@@ -137,6 +141,7 @@ def main(game_image, user_customizations):
         game_image,
         user_customizations,
         game_data['customizations'],
+        game_data['data_types'],
         callback = trace_customizations
     )
 
