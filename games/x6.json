@@ -1,5 +1,5 @@
 {
-	"data_types": {
+	"types": {
 		"common": { "endianness": "little" },
 		"boss_level": { "size": 1, "values": { "Lv.1": 0, "Lv.2": 1, "Lv.3": 2, "Lv.4": 3 } }
 	},

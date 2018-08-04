@@ -52,15 +52,15 @@ def patch(io, offset, value, size, endianness):
     io.write(data)
 
 # Merges values from common and specific data types with the given leaf object
-def merge_type_values(leaf_object, data_types):
+def merge_type_values(leaf_object, types):
     if 'type' in leaf_object:
         leaf_type = leaf_object['type']
-        specific_type = data_types[leaf_type]
+        specific_type = types[leaf_type]
         leaf_object = { **specific_type, **leaf_object }
 
     # The common type is special: it gets merged to all leaf objects if present
-    if 'common' in data_types:
-        common_type = data_types['common']
+    if 'common' in types:
+        common_type = types['common']
         leaf_object = { **common_type, **leaf_object }
 
     return leaf_object
@@ -73,8 +73,8 @@ def map_symbolic_values(leaf_object, key_or_value):
         return key_or_value
 
 # Applies the custom value according to the given customization parameters
-def apply_customization(game_image, key_or_value, parameters, data_types):
-    parameters = merge_type_values(parameters, data_types)
+def apply_customization(game_image, key_or_value, parameters, types):
+    parameters = merge_type_values(parameters, types)
     value = map_symbolic_values(parameters, key_or_value)
 
     patch(
@@ -90,7 +90,7 @@ def is_customization_parameters(value):
     return (type(value) is dict) and ('offset' in value) or ('type' in value)
 
 # Customize game image given user's preferences and available customizations
-def customize(game_image, customizations, customization_data, data_types, stack = [], callback = None):
+def customize(game_image, customizations, customization_data, types, stack = [], callback = None):
     for key, user_value in customizations.items():
         data_value = customization_data[key]
 
@@ -104,7 +104,7 @@ def customize(game_image, customizations, customization_data, data_types, stack 
             if callable(callback):
                 callback(stack, user_value)
 
-            apply_customization(game_image, user_value, data_value, data_types)
+            apply_customization(game_image, user_value, data_value, types)
 
         else:
             # We can still go deeper
@@ -116,7 +116,7 @@ def customize(game_image, customizations, customization_data, data_types, stack 
                 game_image,
                 user_value,
                 data_value,
-                data_types,
+                types,
                 stack = stack,
                 callback = callback
             )
@@ -141,7 +141,7 @@ def main(game_image, user_customizations):
         game_image,
         user_customizations,
         game_data['customizations'],
-        game_data['data_types'],
+        game_data['types'],
         callback = trace_customizations
     )
 
