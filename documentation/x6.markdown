@@ -12,6 +12,8 @@ Currently, the following customizations are supported:
    - Blue
      - Normal
      - Small
+       - Nightmare viruses
+       - Infected reploids
    - Green
      - Mavericks
      - Dynamo
