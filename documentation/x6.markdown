@@ -4,7 +4,6 @@ and a [graphical patching utility] that lets players customize Mega Man X6.
 
 Currently, the following customizations are supported:
 
- - Verify integrity of the game image prior to patching
  - Edit hunter ranks
    - Souls required
    - Normal and limited parts allowed
