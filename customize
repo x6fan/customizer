@@ -134,31 +134,31 @@ def make_customization_applicator(game_image, types, value_function, value_trace
 
 # Customize game image given user's preferences and available customizations
 def customize(game_image, customizations, customization_data, types, tracer_function = None):
-    def get_custom_value(path, parameters):
+    def get_custom_user_value(path, parameters):
         return descend_into(customizations, path)
 
-    customization_applicator = make_customization_applicator(
+    user_value_applicator = make_customization_applicator(
         game_image,
         types,
-        get_custom_value,
+        get_custom_user_value,
         value_tracer = tracer_function
     )
 
-    traverse(customization_data, callback = customization_applicator)
+    traverse(customization_data, callback = user_value_applicator)
 
 # Apply default values to the game image
 def apply_defaults(game_image, customization_data, types, tracer_function = None):
     def get_default_value(path, parameters):
         return parameters['default']
 
-    customization_applicator = make_customization_applicator(
+    default_value_applicator = make_customization_applicator(
         game_image,
         types,
         get_default_value,
         value_tracer = tracer_function
     )
 
-    traverse(customization_data, callback = customization_applicator)
+    traverse(customization_data, callback = default_value_applicator)
 
 def trace_customizations(stack, value):
     print('%s = %s' % ('.'.join(stack), value))
